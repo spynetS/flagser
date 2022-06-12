@@ -1,12 +1,11 @@
 import sys
 
-class Args:
+class FlagManager:
     flags = []
     args = []
     def __init__(self,flags=[]):
         self.flags = flags
         self.args = sys.argv
-        self.args.remove("main.py")
 
     def isFlag(self,arg):
         for flag in self.flags:
@@ -54,19 +53,3 @@ class Flag:
 
     def __str__(self):
         return "short-"+self.shortFlag+"  long--"+self.longFlag
-
-class Help(Flag):
-    shortFlag = "h"
-    longFlag = "help"
-    def onCall(self,args):
-        print("hello boys")
-
-class Install(Flag):
-    shortFlag = "s"
-    longFlag = ""
-    def onCall(self,args):
-        print("Installing",args)
-
-
-a = Args([Help(),Install()])
-a.start()

@@ -1,0 +1,9 @@
+LICENCE
+README.md
+setup.py
+flagser/__init__.py
+flagser/flagser.py
+flagser.egg-info/PKG-INFO
+flagser.egg-info/SOURCES.txt
+flagser.egg-info/dependency_links.txt
+flagser.egg-info/top_level.txt

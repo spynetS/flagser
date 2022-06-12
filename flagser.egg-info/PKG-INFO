@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: flagser
+Version: 0.6
+Summary: Flag manager
+Home-page: https://github.com/spynetS/flagser
+Author: Alfred Roos
+Author-email: alfred@stensatter.se
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+# Args
+
+This is a library that makes args very easy to hanfle in python
+
+to add a new flag  write
+```
+class NewFlag(Flag):
+  shortFlag = "n"
+  longFlag = "newFlag"
+  def onCall(self,args):
+    print("here you can do what you want")
+    
+a = Args([NewFlag()])
+a.start()
+```
