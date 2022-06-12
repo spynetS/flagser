@@ -3,7 +3,7 @@
 This is a library that makes args very easy to hanfle in python
 
 to add a new flag  write
-´´´
+```
 class NewFlag(Flag):
   shortFlag = "n"
   longFlag = "newFlag"
@@ -12,5 +12,4 @@ class NewFlag(Flag):
     
 a = Args([NewFlag()])
 a.start()
-´
-´´´
+```
