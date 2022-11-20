@@ -3,20 +3,20 @@ import sys
 class Flag:
     shortFlag = "t" # this is the flag -i
     longFlag = "test" # this is for long flag names--install flag name
-    # this is a discription of the flag (gets printed when FlagManager.printHelp) is called
-    discription = "This is a test text. Here you should write the discription if the flag"
+    # this is a description of the flag (gets printed when FlagManager.printHelp) is called
+    description = "This is a test text. Here you should write the discription if the flag"
     # this method is called when a flag has been seen
     def onCall(self,args):
         print("Flag test was called with this args",args)
-    #prints the flags and the discription
+    #prints the flags and the description
     def __str__(self):
-        return "-"+self.shortFlag+" --"+self.longFlag+"    "+self.discription
+        return "-"+self.shortFlag+" --"+self.longFlag+"    "+self.description
 
-# help flag class 
+# help flag class
 class Help(Flag):
     shortFlag = "h"
     longFlag = "help"
-    discription = "prints flags and how to use the program"
+    description = "prints flags and how to use the program"
     a = None
     def __init__(self,flagManager):
         self.a = flagManager
@@ -28,7 +28,7 @@ class Help(Flag):
 class FlagManager:
     flags = [] # flags to check for
     args = [] # all arguments taken when start
-    helpDiscription="Set helpDiscription to change this text"
+    description="Set description to change this text"
     def __init__(self,flags=[]):
         self.flags = flags
 
@@ -68,11 +68,11 @@ class FlagManager:
                 currentFlag = self.getFlag(arg)
                 flagArgs.clear()
                 reading = True
-                
+
         if(currentFlag!=None):currentFlag.onCall(flagArgs)
-    
-    # prints all flags disciprtions and a heloDiscription 
+
+    # prints all flags disciprtions and a helodescription
     def printHelp(self):
-        print(self.helpDiscription)
+        print(self.description)
         for flag in self.flags:
             print(flag)
