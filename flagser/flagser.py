@@ -1,8 +1,8 @@
 import sys
 
 class Flag:
-    shortFlag = "t" # this is the flag -i
-    longFlag = "test" # this is for long flag names--install flag name
+    shortFlag = "" # this is the flag -i
+    longFlag = "" # this is for long flag names--install flag name
     # this is a description of the flag (gets printed when FlagManager.printHelp) is called
     description = "This is a test text. Here you should write the discription if the flag"
     # this method is called when a flag has been seen
@@ -14,8 +14,8 @@ class Flag:
 
 # help flag class
 class Help(Flag):
-    shortFlag = "h"
-    longFlag = "help"
+    shortFlag = "-h"
+    longFlag = "--help"
     description = "prints flags and how to use the program"
     a = None
     def __init__(self,flagManager):
@@ -40,13 +40,13 @@ class FlagManager:
     # returns true if the arg is is a flag or not
     def isFlag(self,arg):
         for flag in self.flags:
-            if(arg == ("-"+flag.shortFlag) or arg == ("--"+flag.longFlag)):
+            if(arg == (flag.shortFlag) or arg == (flag.longFlag)):
                 return True
         return False
     # returns flag object with flagName
     def getFlag(self,flagName):
         for flag in self.flags:
-            if ("--"+flag.longFlag) == flagName or ("-"+flag.shortFlag) == flagName:
+            if (flag.longFlag) == flagName or (flag.shortFlag) == flagName:
                 return flag
         return None
 
