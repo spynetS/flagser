@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='flagser',  
-     version='0.6',
+     version='1.4',
      author="Alfred Roos",
      author_email="alfred@stensatter.se",
      description="Flag manager",
