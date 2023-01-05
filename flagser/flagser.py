@@ -1,11 +1,14 @@
 import sys
 
 class Flag:
-    shortFlag = "" # this is the flag -i
-    longFlag = "" # this is for long flag names--install flag name
     # this is a description of the flag (gets printed when FlagManager.printHelp) is called
     description = "This is a test text. Here you should write the discription if the flag"
     # this method is called when a flag has been seen
+    def __init__(self, shortFlag="",longFlag = "", onCall=None):
+        self.shortFlag = shortFlag # this is the flag -i
+        self.longFlag  = longFlag # this is for long flag names--install flag name
+        self.onCall = onCall
+
     def onCall(self,args):
         print("Flag test was called with this args",args)
     #prints the flags and the description
@@ -28,7 +31,7 @@ class Help(Flag):
 class FlagManager:
     flags = [] # flags to check for
     args = [] # all arguments taken when start
-    description="Set description to change this text"
+    description=""
     def __init__(self,flags=[]):
         self.flags = flags
 
