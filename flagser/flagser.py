@@ -13,7 +13,7 @@ class Flag:
         print("Flag test was called with this args",args)
     #prints the flags and the description
     def __str__(self):
-        return "-"+self.shortFlag+" --"+self.longFlag+"    "+self.description
+        return self.shortFlag+"   "+self.longFlag+"    "+self.description
 
 # help flag class
 class Help(Flag):
