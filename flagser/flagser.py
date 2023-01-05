@@ -58,12 +58,14 @@ class FlagManager:
         reading = False
         flagArgs = []
         index = 0
+        flags = 0
         currentFlag = None
         for arg in self.args:
             if(reading and arg not in self.flags):
                 flagArgs.append(arg)
 
             if(self.isFlag(arg)):
+                flags += 1
                 if currentFlag != None:
                     temp = flagArgs
                     temp.pop()
@@ -73,6 +75,7 @@ class FlagManager:
                 reading = True
 
         if(currentFlag!=None):currentFlag.onCall(flagArgs)
+        return flags
 
     # prints all flags disciprtions and a helodescription
     def printHelp(self):
