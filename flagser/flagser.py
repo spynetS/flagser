@@ -62,13 +62,19 @@ class FlagManager:
         currentFlag = None
         for arg in self.args:
             if(reading and arg not in self.flags):
-                flagArgs.append(arg)
+                if arg[0] != "-":
+                    flagArgs.append(arg)
+                else: reading = False
 
             if(self.isFlag(arg)):
                 flags += 1
                 if currentFlag != None:
                     temp = flagArgs
-                    temp.pop()
+                    try:
+                        temp.pop()
+                    except:
+                        pass
+
                     currentFlag.onCall(temp)
                 currentFlag = self.getFlag(arg)
                 flagArgs.clear()
