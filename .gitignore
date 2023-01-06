@@ -1,1 +1,4 @@
-build/lib/flagser/__init__.py
+build
+dist
+flagser/__pycache__
+flagser.egg-info
