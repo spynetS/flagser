@@ -69,7 +69,6 @@ class FlagManager:
             if(self.isFlag(arg)):
                 flags += 1
                 if currentFlag != None:
-                    print("flags",flagArgs,"flag", currentFlag.shortFlag)
                     temp = flagArgs
                     currentFlag.onCall(temp)
 
