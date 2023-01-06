@@ -11,7 +11,9 @@ class NewFlag(Flag):
   def onCall(self,args):
     print("here you can do what you want")
 
-a = FlagManager([NewFlag()])
+flag2 = Flag(shortFlag="n2", description="this is the secound description", onCall= lambda args: print("runs"))
+
+a = FlagManager([NewFlag(),flag2])
 a.check()
 
 ```
