@@ -69,13 +69,10 @@ class FlagManager:
             if(self.isFlag(arg)):
                 flags += 1
                 if currentFlag != None:
+                    print("flags",flagArgs,"flag", currentFlag.shortFlag)
                     temp = flagArgs
-                    try:
-                        temp.pop()
-                    except:
-                        pass
-
                     currentFlag.onCall(temp)
+
                 currentFlag = self.getFlag(arg)
                 flagArgs.clear()
                 reading = True
