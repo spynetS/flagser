@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: flagser
-Version: 1.4
+Version: 2.0
 Summary: Flag manager
 Home-page: https://github.com/spynetS/flagser
 Author: Alfred Roos
@@ -20,10 +20,12 @@ to add a new flag  write
 class NewFlag(Flag):
   shortFlag = "n"
   longFlag = "newFlag"
-  discription="this is a discripton of what this flag does"
+  description="this is a discripton of what this flag does"
   def onCall(self,args):
     print("here you can do what you want")
-    
-a = Args([NewFlag()])
+
+flag2 = Flag(shortFlag="n2", description="this is the secound description", onCall= lambda args: print("runs"))
+
+a = FlagManager([NewFlag(),flag2])
 a.check()
 ```
