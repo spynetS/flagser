@@ -11,9 +11,6 @@ class Flag:
 
     def onCall(self,args):
         print("Flag test was called with this args",args)
-    #prints the flags and the description
-    def __str__(self):
-        return self.shortFlag+"   "+self.longFlag+"    "+self.description
 
 # help flag class
 class Help(Flag):
@@ -75,12 +72,24 @@ class FlagManager:
                 currentFlag = self.getFlag(arg)
                 flagArgs.clear()
                 reading = True
-
-        if(currentFlag!=None):currentFlag.onCall(flagArgs)
+        try:
+            if(currentFlag!=None):currentFlag.onCall(flagArgs)
+        except: pass
         return flags
 
     # prints all flags disciprtions and a helodescription
     def printHelp(self):
+        longestShort = 0
+        longestLong = 0
+        for flag in self.flags:
+            if len(flag.shortFlag) > longestShort: longestShort = len(flag.shortFlag)
+            if len(flag.longFlag) > longestLong: longestLong = len(flag.longFlag)
+
         print(self.description)
         for flag in self.flags:
-            print(flag)
+            print(flag.shortFlag,end="")
+            print((longestShort-len(flag.shortFlag))*" ",end="  ")
+            print(flag.longFlag,end="")
+            print((longestLong-len(flag.longFlag))*" ",end="   ")
+            print(flag.description)
+
